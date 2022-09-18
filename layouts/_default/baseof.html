@@ -16,7 +16,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     {{ $style := resources.Get "sass/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}" /> 
+    <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}" /> 
 
     {{ block "css" . }}{{ end }}
 
