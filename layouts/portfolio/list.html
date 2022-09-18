@@ -9,7 +9,7 @@
     <h2 class="title">Portfolio</h2>
     <div class="project-list">
         {{ range shuffle (where .Site.RegularPages "Type" "portfolio" ) }}
-            <a href="{{ .Permalink }}" class="project-item">
+            <a href="{{ .RelPermalink }}" class="project-item">
                 <img src="{{ .Params.picture }}" alt="{{ .Title }}" />
                 <h5 class="mx-4">{{ .Title }}</h5>
                 <div class="summary">
