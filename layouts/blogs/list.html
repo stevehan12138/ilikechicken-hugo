@@ -1,0 +1,21 @@
+{{ define "css" }}
+    {{ $style := resources.Get "sass/pages/blogs.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}" /> 
+{{ end }}
+
+{{ define "main" }}
+    <div class="container">
+        <a class="back-link" href="/" > ◄ Back</a>
+        <h1 class="title">{{ .Params.title }}</h1>
+        <div class="list">
+            {{ range .Pages }}
+                <div class="list-item">
+                    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                    <div class="summary">
+                        {{ .Content | truncate 200 }}
+                    </div>  
+                </div>
+            {{ end }}
+        </div>
+    </div>
+{{ end }}

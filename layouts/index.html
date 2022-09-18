@@ -1,0 +1,45 @@
+{{ define "css" }}
+    {{ $style := resources.Get "sass/pages/index.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}" /> 
+{{ end }}
+
+{{ define "main" }}
+
+    <script type="module">
+        let animated = document.getElementById('animatedTitle');
+        let words = ['Web Dev', 'Junior', 'Tinkerer', 'Tutor', "Gamer", "Pianist"]
+        let i = 0;
+        let j = 1;
+        animated.innerHTML = words[i];
+        animated.dataset.hover = words[j];
+
+        setInterval(() => {
+            if (i < words.length - 1) i++;
+            else i = 0;
+
+            if (i + 1 < words.length) j = i + 1;
+            else j = 0;
+
+            animated.classList.add('animated')
+            setTimeout(function() {
+                animated.innerHTML = words[i];
+                animated.dataset.hover = words[j];
+                animated.classList.remove('animated');
+            }, 540);
+        }, 2700);
+    </script>
+
+    <div class="container">
+        <h1>
+            <span class="title color">Hi! I'm a 
+                <span data-hover="nextWord" id="animatedTitle"></span>
+            </a>
+        </h1>
+        <h6 class="subtitle">{{ .Params.subtitle }}</h6>
+        <br />
+        <div class="text" id="discord">
+            {{ .Content }}
+        </div>
+    </div>
+
+{{ end }}

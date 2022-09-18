@@ -1,0 +1,28 @@
+{{ define "css" }}
+    {{ $style := resources.Get "sass/pages/portfolio.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}" /> 
+{{ end }}
+
+{{ define "main" }}
+<div class="container mb-5">
+    <a class="back-link" href="/" > ◄ Back</a>
+    <h2 class="title">Portfolio</h2>
+    <div class="project-list">
+        {{ range shuffle (where .Site.RegularPages "Type" "portfolio" ) }}
+            <a href="{{ .Permalink }}" class="project-item">
+                <img src="{{ .Params.picture }}" alt="{{ .Title }}" />
+                <h5 class="mx-4">{{ .Title }}</h5>
+                <div class="summary">
+                    {{ .Params.description }}
+                </div>
+                {{ if .Params.award }}
+                    <i class="bi bi-award"></i>
+                {{ end }}
+                {{ if .Params.internship }}
+                    <i class="bi bi-briefcase"></i>
+                {{ end }}
+            </a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

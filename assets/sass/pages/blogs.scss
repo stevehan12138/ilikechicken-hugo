@@ -1,0 +1,43 @@
+.title {
+    font-size: 60px;
+    background: linear-gradient(to right, #F7C7DB 0%, #F68ECE 100%);
+    background: #F7C7DB;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.list {
+    margin: 20px -10px;
+    margin-top: 50px;
+}
+
+.list-item {
+    margin-bottom: 40px;
+
+    h2 > a {
+        font-size: 30px;
+        color: #F7C7DB;
+    }
+
+    h2 > a:hover {
+        color: #F68ECE;
+    }
+}
+
+.list-item.other-posts {
+    font-size: 18px;
+    h2 > a {
+        font-size: 25px;
+    }
+}
+
+.page-content {
+    font-size: 18px;
+    min-height: 600px;
+}
+
+pre {
+    padding: 10px;
+    border: 3px solid #F7C7DB;
+}

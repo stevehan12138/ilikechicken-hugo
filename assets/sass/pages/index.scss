@@ -1,0 +1,149 @@
+.color {
+    background: linear-gradient(to right, #1da2d8 0%, #2dd8d8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.title {
+    font-size: 100px;
+    perspective: 1000px;
+
+    span {
+        @keyframes textFlip {
+            90%, 100% {
+                transform: rotateX(90deg) translateY(-22px);
+            }
+        }
+        width: 500px;
+        position: relative;
+        display: inline-block;
+        padding: 0;
+        transition: transform 0.3s;
+        transform-origin: 50% 0;
+        transform-style: preserve-3d;
+        -webkit-text-fill-color: #1da2d8;
+    }
+
+    span.animated {
+        animation: textFlip 0.6s ease-in;
+    }
+
+    span:before {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 500px;
+        height: 100%;
+        content: attr(data-hover);
+        transition: color 0.3s;
+        transform: rotateX(-90deg);
+        transform-origin: 50% 0;
+    }
+}
+
+.subtitle {
+    font-size: 40px;
+    color: #1da2d8;
+}
+
+.text {
+    p {
+        font-size: 21px;
+    }
+    
+    h2 {
+        font-size: 35px;
+    }
+    
+    h3 {
+        font-size: 28px;
+    }
+
+    a {
+        color: #54b3d6;
+        margin: 0 -.25rem;
+        padding: 0 .25rem;
+        padding-top: 0.5rem;
+        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+        text-decoration: none;
+    }
+
+    a:hover {
+        box-shadow: inset 200px 0 0 0 #54b3d6;
+        color: white;
+    }
+
+    .see-more-link {
+        font-size: 20px;
+    }
+
+    h4 > a {
+        color: #F7C7DB !important;
+        text-decoration: underline !important;
+
+        &:hover {
+            color: #F68ECE !important;
+            box-shadow: none !important;
+            cursor: pointer;
+        }
+    }
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+
+    .project-item {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        border: #729B79 3px solid;
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #668F6D !important;
+            box-shadow: none !important;
+            cursor: pointer;
+            h5 {
+                color: white !important;
+                font-size: 32px;
+            }
+        }
+
+        h5 {
+            transition: all 0.2s ease-in-out;
+            color: #BACDB0;
+            font-size: 26px;
+        }
+
+        .summary {
+            color: white;
+            padding: 0 20px;
+            padding-bottom: 20px;
+            width: 300px;
+            flex-grow: 2;
+        }
+        
+        text-decoration: none;
+
+        img {
+            object-fit: cover;
+            border-radius: 10px;
+            height: 150px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        i {
+            font-size: 25px;
+            margin: 0 15px;
+            color: #CEC075;
+        }
+
+    }
+}

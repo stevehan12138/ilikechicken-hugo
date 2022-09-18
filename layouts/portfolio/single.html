@@ -1,0 +1,17 @@
+{{ define "css" }}
+    {{ $style := resources.Get "sass/pages/portfolio.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}" /> 
+{{ end }}
+
+{{ define "main" }}
+    <div class="container">
+        <a class="back-link" href="/portfolio" > ◄ Back</a>
+        <h1 class="title">{{ .Params.title }}</h1>
+        <div class="page-content">
+            <a href="{{ .Params.link }}" class="back-link" >Learn More ►</a>
+            <div class="text-content">
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+{{ end }}

@@ -1,0 +1,15 @@
+<nav class="menu" id="menu">
+    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+    <label class="menu-open-button" for="menu-open">  
+    </label>
+    <a href="/blogs" title="Blogs" class="menu-item blue"><i class="bi bi-newspaper"></i></a>
+    <a href="/tools" title="Tools" class="menu-item purple"><i class="bi bi-tools"></i></a>
+    <a href="/portfolio" title="Portfolio" class="menu-item orange"><i class="bi bi-device-hdd-fill"></i></a>
+    <a href="/" title="Home" class="menu-item blue"><i class="bi bi-house-heart home"></i></i></a>
+</nav>
+
+<script defer>
+    window.addEventListener('scroll', function(){
+        document.getElementById("menu").style.marginTop = Math.max(150, document.documentElement.scrollTop + 120) + 'px';
+    });
+</script>
