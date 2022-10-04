@@ -1,0 +1,21 @@
+{{ define "css" }}
+    {{ $style := resources.Get "sass/pages/tools.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}" /> 
+{{ end }}
+
+{{ define "main" }}
+<div class="container mb-5">
+    <a class="back-link" href="/" > ◄ Back</a>
+    <h2 class="title">Tools</h2>
+    <div class="tool-list">
+        {{ range shuffle (where .Site.RegularPages "Type" "tools" ) }}
+            <a href="{{ .RelPermalink }}" class="tool-item">
+                <h5 class="mx-4">{{ .Title }}</h5>
+                <div class="summary">
+                    {{ .Params.description }}
+                </div>
+            </a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

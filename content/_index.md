@@ -18,6 +18,9 @@ Click [Source](https://github.com/stevehan12138/ilikechicken-hugo) to see how th
 ## Recent(mostly) blogs
 {{< threeBlogs >}}
 
+## Tools
+{{< threeTools >}}
+
 &nbsp;
 
 &nbsp;

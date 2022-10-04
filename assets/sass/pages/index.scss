@@ -147,3 +147,47 @@ span.title {
 
     }
 }
+
+.tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+
+    .tool-item {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        border: #8D91C7 3px solid;
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #8D91C7 !important;
+            box-shadow: none !important;
+            cursor: pointer;
+            h5 {
+                color: white !important;
+                font-size: 32px;
+            }
+        }
+
+        h5 {
+            margin-top: 10px;
+            transition: all 0.2s ease-in-out;
+            color: #8D91C7;
+            font-size: 26px;
+        }
+
+        .summary {
+            color: white;
+            padding: 0 20px;
+            padding-bottom: 20px;
+            width: 300px;
+            flex-grow: 2;
+        }
+        
+        text-decoration: none;
+    }
+}

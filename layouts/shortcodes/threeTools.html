@@ -1,0 +1,13 @@
+<div class="container mb-5">
+    <div class="tool-list">
+        {{ range first 5 ( shuffle (where .Site.RegularPages "Type" "tools" ) ) }}
+            <a href="{{ .RelPermalink }}" class="tool-item">
+                <h5 class="mx-4">{{ .Title }}</h5>
+                <div class="summary">
+                    {{ .Params.description }}
+                </div>
+            </a>
+        {{ end }}
+    </div>
+    <a href="/tools" class="see-more-link">Get the whole list ►</a>
+</div>

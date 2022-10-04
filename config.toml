@@ -1,3 +1,5 @@
 baseURL = 'http://ilikechicken.me/'
 languageCode = 'en-us'
 title = 'ilikechicken'
+[markup.goldmark.renderer]
+unsafe= true
