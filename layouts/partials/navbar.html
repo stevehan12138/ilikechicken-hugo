@@ -1,5 +1,5 @@
 <div class="navbar-container">
-    <nav class="menu" id="menu">
+    <nav class="menu" id="menu" style="margin-top: 150px;">
         <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
         <label class="menu-open-button" for="menu-open">  
         </label>
@@ -10,8 +10,9 @@
     </nav>
 
     <script defer>
+        let menu = document.getElementById("menu")
         window.addEventListener('scroll', function(){
-            document.getElementById("menu").style.marginTop = Math.max(150, document.documentElement.scrollTop + 120) + 'px';
+            menu.style.marginTop = Math.max(150, document.documentElement.scrollTop + 120) + 'px';
         });
     </script>
 </div>  

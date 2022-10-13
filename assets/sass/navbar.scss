@@ -1,8 +1,7 @@
 .navbar-container {
-    margin-top: 150px;
-    margin-left: 140px;
+    margin-left: 10%;
     margin-right: 50px;
-    @media only screen and (max-width: 860px){
+    @media only screen and (max-width: 1000px){
         display: none;
     }
 }
