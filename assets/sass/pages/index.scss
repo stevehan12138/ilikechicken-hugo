@@ -44,7 +44,26 @@ span.title {
 
 .subtitle {
     font-size: 40px;
-    color: #1da2d8;
+    background: linear-gradient(to right,
+        #1DA2D8,
+        pink,
+        #3AB4E4,
+        #1DA2D8
+    );
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: background-pan 3s linear infinite;
+
+    @keyframes background-pan {
+        0% {
+            background-position: 0% center;
+        }
+        100% {
+            background-position: -200% center;
+        }
+    }
 }
 
 .text {

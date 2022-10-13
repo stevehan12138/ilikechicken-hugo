@@ -1,11 +1,18 @@
+.navbar-container {
+    margin-top: 150px;
+    margin-left: 140px;
+    margin-right: 50px;
+    @media only screen and (max-width: 860px){
+        display: none;
+    }
+}
+
 .menu {
     width: 80px;
     height: 80px;
     text-align: center;
     box-sizing: border-box;
     font-size: 26px;
-    margin-top: 150px;
-    flex-grow: 0;
 
     i {
         color: #fff;

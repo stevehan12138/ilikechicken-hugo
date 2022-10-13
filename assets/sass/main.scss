@@ -30,7 +30,7 @@ body {
 }
 
 .main {
-    padding: 0 13rem;
+    padding: 0;
     display: flex;
     height: 100%;
     min-width: 80%;
@@ -67,9 +67,12 @@ body {
 }
 
 .content {
+    @media only screen and (max-width: 860px){
+        margin-top: 100px;
+    }
     margin-top: 150px;
     color: white;
-    padding: 0 50px;
+    padding: 0;
 }
 
 .back-link {
