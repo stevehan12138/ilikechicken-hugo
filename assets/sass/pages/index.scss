@@ -18,14 +18,15 @@ span.title {
     span {
         @keyframes textFlip {
             90%, 100% {
-                transform: rotateX(90deg) translateY(-22px);
+                transform: rotateX(-90deg);
             }
         }
+        white-space: pre;
         position: relative;
         display: inline-flex;
         padding: 0;
         transition: transform 0.3s;
-        transform-origin: 50% 0;
+        transform-origin: 50% 100%;
         transform-style: preserve-3d;
         -webkit-text-fill-color: #1da2d8;
     }
@@ -36,13 +37,10 @@ span.title {
 
     span:before {
         position: absolute;
-        top: 100%;
+        top: 0;
         left: 0;
-        width: 500px;
-        height: 100%;
         content: attr(data-hover);
-        transition: color 0.3s;
-        transform: rotateX(-90deg);
+        transform: rotateX(-90deg) scaleX(-1) rotate(180deg) translateY(-100%);
         transform-origin: 50% 0;
     }
 }
