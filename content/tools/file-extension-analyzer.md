@@ -20,7 +20,7 @@ async function onSubmit(event) {
     let data = new FormData();
     data.append('file', file.files[0]);
 
-    let dataReturned = await fetch('http://trid.tools.ilikechicken.me/upload', {
+    let dataReturned = await fetch('https://trid.tools.ilikechicken.me/upload', {
         method: 'POST',
         body: data
     })
