@@ -1,1 +1,91 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on ilikechicken</title><link>http://ilikechicken.me/tools/</link><description>Recent content in Tools on ilikechicken</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://ilikechicken.me/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>File Extension Analyzer</title><link>http://ilikechicken.me/tools/file-extension-analyzer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://ilikechicken.me/tools/file-extension-analyzer/</guid><description> # File Extension Probability</description></item><item><title>Timezone Converter</title><link>http://ilikechicken.me/tools/timezone-converter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://ilikechicken.me/tools/timezone-converter/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on ilikechicken</title><link>http://ilikechicken.me/tools/</link><description>Recent content in Tools on ilikechicken</description><generator>Hugo</generator><language>en-us</language><atom:link href="http://ilikechicken.me/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>File Extension Analyzer</title><link>http://ilikechicken.me/tools/file-extension-analyzer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://ilikechicken.me/tools/file-extension-analyzer/</guid><description>&lt;script defer>
+async function onSubmit(event) {
+ event.preventDefault();
+ let file = document.getElementById('file');
+ let result = document.getElementById('result');
+ let tbody = document.getElementById('tbody');
+ let msg = document.getElementById('msg');
+
+ if (file.files.length === 0) {
+ msg.innerHTML = "Please select a file.";
+ return;
+ }
+
+ let data = new FormData();
+ data.append('file', file.files[0]);
+
+ let dataReturned = await fetch('https://trid.tools.ilikechicken.me/upload', {
+ method: 'POST',
+ body: data
+ })
+
+ if (dataReturned.status !== 200) {
+ msg.innerHTML = "Error: " + dataReturned.status;
+ return;
+ }
+
+ let dataJson = await dataReturned.json();
+
+
+ msg.innerHTML = "";
+ tbody.innerHTML = "";
+
+ if (dataJson.msg &amp;&amp; dataJson.msg === "File is in plain text") {
+ msg.innerHTML = "File is in plain text";
+ return;
+ }
+
+ for (let i = 0; i &lt; dataJson.probabilities.length; i++) {
+ let tr = document.createElement('tr');
+ let td1 = document.createElement('td');
+ let td2 = document.createElement('td');
+ let td3 = document.createElement('td');
+ td1.innerHTML = i+1;
+ td2.innerHTML = dataJson.probabilities[i].name;
+ td3.innerHTML = dataJson.probabilities[i].probability;
+ tr.appendChild(td1);
+ tr.appendChild(td2);
+ tr.appendChild(td3);
+ tbody.appendChild(tr);
+ }
+}
+
+&lt;/script>
+&lt;input onchange="onSubmit(event)" type="file" id="file" name="file" class="form-control" style="display: inline">
+&lt;h2 id="msg" style="margin-top: 10px">&lt;/h2>
+&lt;div id="result">
+ &lt;table class="table file-table">
+ &lt;thead>
+ &lt;tr>
+ &lt;th scope="col">#&lt;/th>
+ &lt;th scope="col">File Extension&lt;/th>
+ &lt;th scope="col">Probability&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody id="tbody">
+ &lt;/tbody>
+ &lt;/table>
+&lt;/div></description></item><item><title>Timezone Converter</title><link>http://ilikechicken.me/tools/timezone-converter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://ilikechicken.me/tools/timezone-converter/</guid><description>&lt;script src="http://ilikechicken.me/js/chrono.js" defer>&lt;/script>
+&lt;script defer>
+let typingTimer;
+let doneTypingInterval = 2000;
+let input = document.getElementById('time');
+let show = document.getElementById('show-time');
+let data;
+input.addEventListener('keyup', function () {
+ clearTimeout(typingTimer);
+ if (input.value) {
+ typingTimer = setTimeout(doneTyping, doneTypingInterval); 
+ }
+});
+function doneTyping () {
+ data = chrono.parseDate(input.value);
+ if(data) {
+ show.innerHTML = 'Converts to ' + data.toString();
+ } else {
+ show.innerHTML = "Unable to process the time."
+ }
+}
+&lt;/script>
+&lt;input type="text" class="time" id="time" placeholder="Try 'next friday at 2 pm est'">
+&lt;h4 id="show-time">&lt;/h4></description></item></channel></rss>
